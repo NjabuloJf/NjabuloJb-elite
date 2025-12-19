@@ -1,8 +1,8 @@
 {
-  "name": "DML-QR CODE",
+  "name": "NjabuloJb-QR CODE",
   "description": "SESSION ID GENERATOR FOR WHATSAPP BOTS",
   "logo": "https://files.catbox.moe/reypkp.jpg",
-  "repository": "https://github.com/MLILA17/DML-MD",
+  "repository": "https://github.com/NjabuloJf/NjabuloJb-elite",
   "keywords": ["Dml"],
   "success_url": "/", 
   "buildpacks": [
@@ -11,7 +11,7 @@
   "env": {      
     "MESSAGE": {
       "description": "Msg Attached With Session ID",
-      "value": "BY DML",
+      "value": "BY Njabulo Jb elite",
       "required": false 
     }
   }
