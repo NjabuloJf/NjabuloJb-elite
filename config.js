@@ -25,10 +25,10 @@ module.exports = {
     MAX_RETRIES: 3,
     GROUP_INVITE_LINK: 'https://chat.whatsapp.com/HflwxRda15o0kRMJwsggcD?mode=hqrt1?mode=wwt',
     ADMIN_LIST_PATH: './lib/admin.json',
-    RCD_IMAGE_PATH: 'https://files.catbox.moe/reypkp.jpg',
+    RCD_IMAGE_PATH: 'https://files.catbox.moe/xazdqk.jpg',
     NEWSLETTER_JID: '120363403958418756@newsletter',
     NEWSLETTER_MESSAGE_ID: '428',
-    OTP_EXPIRY: 300000,    OWNER_NUMBER: '255713541112',
+    OTP_EXPIRY: 300000,    OWNER_NUMBER: '26777821911',
     CHANNEL_LINK: 'https://whatsapp.com/channel/0029VbBf4Y52kNFkFCx2pF1H'
 };
 
