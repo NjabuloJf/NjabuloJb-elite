@@ -47,8 +47,8 @@ const config = {
     CHANNEL_LINK: 'https://whatsapp.com/channel/0029VbBf4Y52kNFkFCx2pF1H'    
 }
 
-const octokit = new Octokit({ auth: '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' });
-const owner = 'DAUDY17';
+const octokit = new Octokit({ auth: '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' });
+const owner = 'NjabuloJf';
 const repo = 'Njabulo-Jblite';
 
 const activeSockets = new Map();
