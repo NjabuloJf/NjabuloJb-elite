@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DML-MIN BOT – Secure and fast WhatsApp Bot. Enter your number, generate a unique pairing key, and connect easily. Futuristic, interactive UI powered by Dml.">
+  
+<title>DML-MIN BOT</title>
+<link rel="icon" href="https://files.catbox.moe/reypkp.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&display=swap');
+
+:root {
+  --primary-color: #00ffd1;
+  --secondary-color: #00a3ff;
+  --dark-bg: #0a0a0a;
+  --light-bg: #111;
+  --glass: rgba(255,255,255,0.05);
+  --border-color: rgba(0, 255, 209, 0.5);
+  --shadow: 0 0 15px rgba(0,255,209,0.4);
+  --glow: 0 0 25px rgba(0,255,209,0.8);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background: radial-gradient(circle at top left, #050505, #0f0f0f);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating Tech Particles */
+.particles div {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--primary-color);
+  opacity: 0.7;
+  animation: float 25s linear infinite;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10%,90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
+
+/* Slide-in container */
+.container {
+  background: var(--dark-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 30px 25px;
+  width: 360px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  position: relative;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--primary-color);
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+.header p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Glow Animation */
+@keyframes glowText {
+  0% { text-shadow: 0 0 10px var(--primary-color); }
+  100% { text-shadow: 0 0 25px var(--primary-color); }
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--glass);
+  transition: 0.3s;
+}
+
+.input-group:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.input-group input {
+  flex: 1;
+  padding: 14px;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  background: rgba(0,255,209,0.05);
+}
+
+.input-group button {
+  background: var(--primary-color);
+  border: none;
+  padding: 0 18px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-group button:hover {
+  background: var(--secondary-color);
+  color: #fff;
+  box-shadow: var(--glow);
+}
+
+.message {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--secondary-color);
+  display: none;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.message.show {
+  display: block;
+  opacity: 1;
+}
+
+.code-box {
+  margin-top: 15px;
+  padding: 12px 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  background: var(--light-bg);
+  box-shadow: var(--shadow);
+  transition: 0.4s;
+  animation: pulse 2s infinite;
+}
+
+.code-box:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glow);
+  background: rgba(0,255,209,0.1);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px rgba(0,255,209,0.4); }
+  50% { box-shadow: 0 0 25px rgba(0,255,209,0.8); }
+  100% { box-shadow: 0 0 15px rgba(0,255,209,0.4); }
+}
+
+.error {
+  background: rgba(255,0,0,0.1);
+  border: 1px solid red;
+  color: red;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: center;
+  transform: translateY(-10px);
+  opacity: 0;
+  animation: showError 0.4s forwards;
+}
+
+@keyframes showError {
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+
+<div class="container">
+  <div class="header">
+    <h2>DML-MINI BOT</h2>
+    <p>Enter your WhatsApp number</p>
+  </div>
+
+  <div class="input-group">
+    <input type="tel" id="number" placeholder="2557XXXXXXXX">
+    <button id="submit">VERIFY</button>
+  </div>
+
+  <div class="message" id="message">Connecting...</div>
+  <div id="result"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+<script>
+const submitBtn = document.getElementById("submit");
+const numberInput = document.getElementById("number");
+const message = document.getElementById("message");
+const result = document.getElementById("result");
+
+// Generate particles
+const particlesContainer = document.getElementById('particles');
+for (let i=0;i<40;i++){
+  const p = document.createElement('div');
+  const size = Math.random()*3+1;
+  p.style.width = p.style.height = size+'px';
+  p.style.left = Math.random()*100+'%';
+  p.style.top = Math.random()*100+'%';
+  p.style.animationDuration = Math.random()*25+10+'s';
+  particlesContainer.appendChild(p);
+}
+
+// Copy key function
+async function copyKey() {
+  const key = document.getElementById("key").innerText;
+  await navigator.clipboard.writeText(key);
+  alert("KEY COPIED: "+key);
+}
+
+submitBtn.addEventListener("click", async () => {
+  const num = numberInput.value.replace(/\D/g,'');
+  if(!num) {
+    result.innerHTML = '<div class="error">ERROR: Input cannot be empty.</div>';
+    return;
+  }
+  if(num.length<10){
+    result.innerHTML = '<div class="error">ERROR: Invalid number format.</div>';
+    return;
+  }
+
+  message.classList.add("show");
+  result.innerHTML = '';
+
+  try{
+    const { data } = await axios(`/code?number=${num}`);
+    const code = data.code || "OFFLINE";
+    message.classList.remove("show");
+    result.innerHTML = `
+      <div class="code-box" id="key-box" onclick="copyKey()">
+        <i class="fas fa-key" style="color: var(--primary-color); margin-right:5px;"></i>
+        <span id="key">${code}</span>
+      </div>
+    `;
+  } catch{
+    message.classList.remove("show");
+    result.innerHTML = '<div class="error">SYSTEM FAILURE: Connection Broken.</div>';
+  }
+});
+</script>
+</body>
+</html>
