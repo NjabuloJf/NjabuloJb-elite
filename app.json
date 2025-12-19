@@ -1,0 +1,18 @@
+{
+  "name": "DML-QR CODE",
+  "description": "SESSION ID GENERATOR FOR WHATSAPP BOTS",
+  "logo": "https://files.catbox.moe/reypkp.jpg",
+  "repository": "https://github.com/MLILA17/DML-MD",
+  "keywords": ["Dml"],
+  "success_url": "/", 
+  "buildpacks": [
+    { "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" }
+  ],
+  "env": {      
+    "MESSAGE": {
+      "description": "Msg Attached With Session ID",
+      "value": "BY DML",
+      "required": false 
+    }
+  }
+}
